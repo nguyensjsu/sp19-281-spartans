@@ -5,7 +5,7 @@
 + Explored the various project ideas:
   + Streaming application
     + A SAAS application like youtube or netflix
-    + Data streeeming, large data storeing and availibility was main concern 
+    + Data streaming, large data storing and availability was main concern
     + Thought of making a CDN like service
   + Shopping Cart 
     + Similar Amazon's e-commerce website, a distributed shopping cart service
