@@ -67,8 +67,6 @@ docker run -d -h node-2.rabbit                                      \
            rabbitmq:spartanup
 ```
 
-Now we can access the RabbitMQ UI at http://node-1.rabbit:15672/ and http://node-2.rabbit:15672/
-
 ### Configuring our RabbitMQ cluster
 
 ##### **ERLANG COOKIE**
@@ -100,7 +98,7 @@ docker exec rabbit rabbitmqctl join_cluster rabbit@node-1.rabbit
 docker exec rabbit rabbitmqctl start_app
 ```
 
-On the UI, now we can see both the nodes joined to form the cluster.
+Now we can see that both the nodes joined to form the cluster.
 
 ##### Mirrored Queues
 
@@ -114,12 +112,15 @@ The above ha policy ensures that all queues starting with the name "ha." will be
 
 ### Create the HA queue
 
-From the UI console on any node, create a queue:
+From any node, create a queue:
 
 ```
-name: ha.spartan
-durable: yes
+docker exec rabbitmqadmin declare queue name=ha.spartans durable=true
 ```
+
+The above queue gets mirrored in the other node as well.
+
+**Another HA cluster**
 
 Similarly, create another HA cluster of RabbitMQ.
 
@@ -164,4 +165,4 @@ Current node details:
  * Erlang cookie hash: PXMlDtXQP3bsTm4AKCAwkA==
 ```
 
-The problem was that the nodes did not know about each other. Modified the /etc/hosts file on the instances, plus inside the containers as written above solved the problem.
+The problem was that the nodes did not know about each other. Modified the /etc/hosts file on the instances, plus inside the containers (as written above in the /etc/hosts section) to solve the problem.
