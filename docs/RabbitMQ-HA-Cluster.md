@@ -115,7 +115,7 @@ The above ha policy ensures that all queues starting with the name "ha." will be
 From any node, create a queue:
 
 ```
-docker exec rabbitmqadmin declare queue name=ha.spartans durable=true
+docker exec rabbit rabbitmqadmin declare queue name=ha.spartans durable=true
 ```
 
 The above queue gets mirrored in the other node as well.
