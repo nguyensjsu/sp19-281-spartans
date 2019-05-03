@@ -8,6 +8,8 @@ In our architecture, each queue is set up in a HA cluster. Reason being that the
 AMI: rabbitmq-docker-host-ami
 Instance: 2
 Private Subnet
+IAM Role: QueueMetricData281
+SG Open Ports   :   4369, 5672, 15672, 25672, 35197
 ```
 
 ### Starting RabbitMQ docker containers
