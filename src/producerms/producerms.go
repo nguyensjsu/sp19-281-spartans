@@ -15,8 +15,7 @@ import (
 
 // MongoDB Config
 //var mongodb_server = "mongodb"
-//var mongodb_server = "mongo"
-var mongodb_server = "localhost:27017"
+var mongodb_server = "mongo"
 var mongodb_database = "cmpe281"
 var mongodb_collection = "producers"
 
