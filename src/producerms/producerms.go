@@ -2,23 +2,20 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"net/http"
 	"github.com/codegangsta/negroni"
-	//"github.com/streadway/amqp"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
-	//"github.com/satori/go.uuid"
 	"gopkg.in/mgo.v2"
-    "gopkg.in/mgo.v2/bson"
+	"gopkg.in/mgo.v2/bson"
+	"log"
+	"net/http"
+	"os"
 )
 
 // MongoDB Config
-//var mongodb_server = "mongodb"
-var mongodb_server = "mongo"
+var mongodb_server = "localhost"
 var mongodb_database = "cmpe281"
 var mongodb_collection = "producers"
-
 
 // NewServer configures and returns a Server.
 func NewServer() *negroni.Negroni {
@@ -35,8 +32,8 @@ func NewServer() *negroni.Negroni {
 // API Routes
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
-	mx.HandleFunc("/producer", producerHandler(formatter)).Methods("GET")
-	mx.HandleFunc("/producer/{pid}", producerInsertHandler(formatter)).Methods("POST")
+	mx.HandleFunc("/producers", producerHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/producer/{pid}", producerPostHandler(formatter)).Methods("POST")
 }
 
 // Helper Functions
@@ -50,53 +47,68 @@ func failOnError(err error, msg string) {
 // API Ping Handler
 func pingHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		formatter.JSON(w, http.StatusOK, struct{ Test string }{"Producer microservice is alive!"})
 	}
 }
 
-// API Gumball Machine Handler
+// API Producer List Handler
 func producerHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-
-		//params := mux.Vars(req)
-		//var ProducerId string = params["id"]
-
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		session, err := mgo.Dial(mongodb_server)
-        if err != nil {
-                panic(err)
-        }
-        defer session.Close()
-        session.SetMode(mgo.Monotonic, true)
-        
-        c := session.DB(mongodb_database).C(mongodb_collection)
-        var result bson.M
-        err = c.Find(bson.M{"ProducerID": 1}).All(&result)
-        if err != nil {
-                log.Fatal(err)
-        }
-		formatter.JSON(w, http.StatusOK, result)
-	}
-}
-
-// API Update Gumball Inventory
-func producerInsertHandler(formatter *render.Render) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
-        params := mux.Vars(req)
-		var ProdId string = params["pid"]
-
-		session, err := mgo.Dial(mongodb_server)
-        if err != nil {
-                panic(err)
-        }
-        defer session.Close()
+		if err != nil {
+			panic(err)
+		}
+		defer session.Close()
 		session.SetMode(mgo.Monotonic, true)
-		
-		c := session.DB(mongodb_database).C(mongodb_collection)	
-		var result bson.M
-		err = c.Insert(bson.M{"ProducerId": ProdId})
-        if err != nil {
-                log.Fatal(err)
-        }
+		c := session.DB(mongodb_database).C(mongodb_collection)
+		var result []bson.M
+		err = c.Find(bson.M{}).All(&result)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println("Gumball Machine:", result)
 		formatter.JSON(w, http.StatusOK, result)
 	}
 }
+
+// API Producer List Handler
+func producerPostHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		params := mux.Vars(req)
+		var pid string = params["pid"]
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			panic(err)
+		}
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+		var data = bson.D{{"producer", pid}}
+		err = c.Insert(data)
+		if err != nil {
+			log.Fatal(err)
+		}
+		formatter.JSON(w, http.StatusOK, struct{ Message string }{"Success"})
+	}
+}
+
+func main() {
+
+	port := os.Getenv("PORT")
+	if len(port) == 0 {
+		port = "3001"
+	}
+
+	server := NewServer()
+	server.Run(":" + port)
+}
+
+/*
+	use cmpe281;
+    db.producers.insert({producer: 45261});
+
+*/
+
