@@ -15,7 +15,7 @@
 
 
 ### What am I planning to work on next?
-- Bringing up the Riak cluster and enhance Consumer API to conenct and store messages in Riak database
+- Bringing up the Riak cluster and enhance Consumer API to connect and store messages in Riak database
 
 
 ### What tasks are blocked waiting on another team member?
