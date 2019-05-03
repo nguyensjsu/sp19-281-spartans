@@ -7,7 +7,6 @@ const data = {
     xFormat: '%Y',
     columns: [
         ['x'],
-        ['Temp']
     ],
 };
 

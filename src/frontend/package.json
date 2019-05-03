@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.3",
+    "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-c3js": "^0.1.20",
     "react-chartjs": "^1.2.0",

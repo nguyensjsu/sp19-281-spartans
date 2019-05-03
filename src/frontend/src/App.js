@@ -3,6 +3,7 @@ import './App.css';
 
 import TempGraph from './components/Graph'
 import SelectSensors from './components/SelectSensors'
+import moment from 'moment';
 
 const temp_url = "";
 const mem_url = "";
@@ -25,72 +26,93 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedSensors: [],
+            selectedSensor: null,
             tempData: null,
-            cpuData: null,
-            memData: null,
+            refreshRate: 350000
+
         };
-        this.setSelectedSensors = this.setSelectedSensors.bind(this)
-        this.timer;
+        this.setSelectedSensor = this.setSelectedSensor.bind(this)
+        this.setRefreshRate = this.setRefreshRate.bind(this)
+        this.resetInterval = this.resetInterval.bind(this)
+    }
+
+    getTimeRange() {
+        return "/" + moment().subtract(5, 'minute').format('YYYY-MM-DDTHH:mm:ss') + "/" + moment().format('YYYY-MM-DDTHH:mm:ss')
     }
 
     componentDidMount() {
+        this.resetInterval();
+    }
+
+    setSelectedSensor(sensor) {
+        this.setState({
+            selectedSensor: sensor,
+            tempData: null,
+        });
+    }
+
+    setRefreshRate(rate) {
+        this.setState({
+            refreshRate: rate,
+        }, this.resetInterval);
+    }
+
+    resetInterval() {
+        if (this.timer)
+            clearInterval(this.timer);
         this.timer = setInterval(
             _ => {
-                fetch(temp_url + "12345/2019-05-02T20:10:40/2019-05-02T22:50:40")
-                    .then(data => data.json())
-                    .then(json => {
-                        this.setState({
-                            tempData: {
-                                x: 'x',
-                                xFormat: '%Y',
-                                columns: [
-                                    ['x', ...json.map(item => item.Time)],
-                                    ['Temp', ...json.map(item => item.Temperature)]
-                                ],
-                            }
-                        })
-                    });
+                if (this.state.selectedSensor) {
+                    fetch(temp_url + this.state.selectedSensor + this.getTimeRange())
+                        .then(data => data.json())
+                        .then(json => {
+                            if (json)
+                                this.setState({
+                                    tempData: {
+                                        x: 'x',
+                                        xFormat: '%Y',
+                                        columns: [
+                                            ['x', ...json.map(item => item.Time)],
+                                            ['Temp', ...json.map(item => item.Temperature)]
+                                        ],
+                                    }
+                                })
+                        });
 
-                fetch(mem_url + "12345/2019-05-02T20:10:40/2019-05-02T22:50:40")
-                    .then(data => data.json())
-                    .then(json => {
-                        this.setState({
-                            tempData: {
-                                x: 'x',
-                                xFormat: '%Y',
-                                columns: [
-                                    ['x', ...json.map(item => item.Time)],
-                                    ['Memory usage', ...json.map(item => item.Temperature)]
-                                ],
-                            }
-                        })
-                    });
+                    fetch(mem_url + this.state.selectedSensor + this.getTimeRange())
+                        .then(data => data.json())
+                        .then(json => {
+                            if (json)
+                                this.setState({
+                                    tempData: {
+                                        x: 'x',
+                                        xFormat: '%Y',
+                                        columns: [
+                                            ['x', ...json.map(item => item.Time)],
+                                            ['Memory usage', ...json.map(item => item.Temperature)]
+                                        ],
+                                    }
+                                })
+                        });
 
-                fetch(cpu_url + "12345/2019-05-02T20:10:40/2019-05-02T22:50:40")
-                    .then(data => data.json())
-                    .then(json => {
-                        this.setState({
-                            tempData: {
-                                x: 'x',
-                                xFormat: '%Y',
-                                columns: [
-                                    ['x', ...json.map(item => item.Time)],
-                                    ['CPU Usage', ...json.map(item => item.Temperature)]
-                                ],
-                            }
-                        })
-                    });
-            }, 1000)
-    }
-
-    setSelectedSensors(sensors) {
-        this.setState({selectedSensors: sensors});
-        console.log(sensors)
-    }
-
-    updateGraph(data) {
-        console.log(data)
+                    fetch(cpu_url + this.state.selectedSensor + this.getTimeRange())
+                        .then(data => data.json())
+                        .then(json => {
+                            if (json)
+                                this.setState({
+                                    tempData: {
+                                        x: 'x',
+                                        xFormat: '%Y',
+                                        columns: [
+                                            ['x', ...json.map(item => item.Time)],
+                                            ['CPU Usage', ...json.map(item => item.Temperature)]
+                                        ],
+                                    }
+                                })
+                        });
+                }
+            }, this.state.refreshRate)
+        console.log(this.timer)
     }
 
     render() {
@@ -99,7 +121,11 @@ class App extends Component {
                 <div style={styles.appBar}>
                     SpartanUp - Monitor
                 </div>
-                <SelectSensors setSelectedSensors={this.setSelectedSensors}/>
+                <SelectSensors
+                    refreshRate={this.state.refreshRate}
+                    setSelectedSensor={this.setSelectedSensor}
+                    setRefreshRate={this.setRefreshRate}
+                />
                 <TempGraph data={this.state.tempData}/>
             </div>
 
