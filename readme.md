@@ -36,7 +36,7 @@ To keep track of so much amount of data which is being pushed regularly by a pro
 
 **Architecture**
 
-![](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/docs/version1-architecture.png)
+![](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/docs/Architecture.jpeg)
 
 **Design**
 
@@ -54,7 +54,9 @@ To keep track of so much amount of data which is being pushed regularly by a pro
 
 * The SAAS app front end is deployed on Heroku which queries the above microservices to fetch the different statistics. [Front End Code](https://github.com/nguyensjsu/sp19-281-spartans/tree/develop/src/frontend)
 
-  
+* SAAS App on Heroku
+
+  ![](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/docs/FrontEnd.jpeg)
 
 ## GitHub Repo:
 
