@@ -62,6 +62,8 @@ To keep track of so much amount of data which is being pushed regularly by a pro
 
 * SAAS App on Heroku
 
+  https://spartan-up-monitor.herokuapp.com/
+
   ![](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/docs/FrontEnd.jpeg)
 
 ## GitHub Repo:
