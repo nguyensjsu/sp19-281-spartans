@@ -14,7 +14,7 @@ Spartans
 
 - [Busi Pallavi Reddy](https://github.com/busipallavi-reddy)
 - [Maunil Swadas](https://github.com/maunilswadas)
-- 
+- [Rakesh Amireddy](https://github.com/rakeshamireddy)
 
 ## 
 
