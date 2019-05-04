@@ -80,41 +80,41 @@ To keep track of so much amount of data which is being pushed regularly by a pro
 
 **Week 1**
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-RakeshAmireddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-RakeshAmireddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-busipallavi-reddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-busipallavi-reddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-maunil-swadas.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-maunil-swadas.md
 
 
 
 **Week 2**
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-RakeshAmireddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-RakeshAmireddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-busipallavi-reddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-busipallavi-reddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-maunil-swadas.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-maunil-swadas.md
 
 
 
 **Week 3**
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-RakeshAmireddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-RakeshAmireddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-busipallavi-reddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-busipallavi-reddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-maunil-swadas.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-maunil-swadas.md
 
 
 
 **Week 4**
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-RakeshAmireddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-RakeshAmireddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-busipallavi-reddy.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-busipallavi-reddy.md
 
-[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-maunil-swadas.md)
+https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-maunil-swadas.md
 
 
 
