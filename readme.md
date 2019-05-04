@@ -12,7 +12,8 @@ Spartans
 
 ## Team Members
 
-- [Busi Pallavi Reddy](https://github.com/busipallavi-reddy) - 013852800
+- [Busi Pallavi Reddy](https://github.com/busipallavi-reddy)
+- [Maunil Swadas](https://github.com/maunilswadas)
 - 
 
 ## 
