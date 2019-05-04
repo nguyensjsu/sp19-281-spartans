@@ -36,7 +36,7 @@ To keep track of so much amount of data which is being pushed regularly by a pro
 
 **Architecture**
 
-![](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/docs/Architecture.jpeg)
+![](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/docs/Architecture.png)
 
 **Design**
 
