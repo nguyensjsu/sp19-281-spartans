@@ -13,7 +13,7 @@ import (
 )
 
 // MongoDB Config
-var mongodb_server = "localhost"
+var mongodb_server = "mongo"
 var mongodb_database = "cmpe281"
 var mongodb_collection = "producers"
 
@@ -68,7 +68,6 @@ func producerHandler(formatter *render.Render) http.HandlerFunc {
 		if err != nil {
 			log.Fatal(err)
 		}
-		fmt.Println("Gumball Machine:", result)
 		formatter.JSON(w, http.StatusOK, result)
 	}
 }
