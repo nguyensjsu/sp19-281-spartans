@@ -14,15 +14,13 @@ Spartans
 
 - [Busi Pallavi Reddy](https://github.com/busipallavi-reddy)
 - [Maunil Swadas](https://github.com/maunilswadas)
-- 
+- [Rakesh Amireddy](https://github.com/rakeshamireddy)
 
 ## 
 
 ## Project Name
 
 ### Device Monitoring System
-
-## 
 
 ## Project Description
 
@@ -52,6 +50,14 @@ To keep track of so much amount of data which is being pushed regularly by a pro
 
 * In front of the Riak TS, we hosted our microservices which read the individual stats from the RiakTS. There is another microservice for maintaining all the producers on MongoDB.
 
+  [Microservice for CPU Usage stats](https://github.com/nguyensjsu/sp19-281-spartans/tree/develop/src/microservice_cpu)
+
+  [Microservice for Memory stats](https://github.com/nguyensjsu/sp19-281-spartans/tree/develop/src/microservice_memory)
+
+  [Microservice for temperature stats](https://github.com/nguyensjsu/sp19-281-spartans/tree/develop/src/microservice_temperature)
+
+  [Microservice for maintaining the producers](https://github.com/nguyensjsu/sp19-281-spartans/tree/develop/src/microservice_producers)
+
 * The SAAS app front end is deployed on Heroku which queries the above microservices to fetch the different statistics. [Front End Code](https://github.com/nguyensjsu/sp19-281-spartans/tree/develop/src/frontend)
 
 * SAAS App on Heroku
@@ -69,3 +75,48 @@ To keep track of so much amount of data which is being pushed regularly by a pro
 <https://github.com/nguyensjsu/sp19-281-spartans/projects/2>
 
 ## 
+
+## Weekly Journals:
+
+**Week 1**
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-RakeshAmireddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-busipallavi-reddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week1-maunil-swadas.md)
+
+
+
+**Week 2**
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-RakeshAmireddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-busipallavi-reddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week2-maunil-swadas.md)
+
+
+
+**Week 3**
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-RakeshAmireddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-busipallavi-reddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week3-maunil-swadas.md)
+
+
+
+**Week 4**
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-RakeshAmireddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-busipallavi-reddy.md)
+
+[](https://github.com/nguyensjsu/sp19-281-spartans/blob/develop/journal/Week4-maunil-swadas.md)
+
+
+
+
+
